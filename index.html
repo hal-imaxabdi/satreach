@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SatReach — Satellite Coverage Explorer</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="logo">Sat<span>Reach</span></div>
+    <div class="tagline">Visualising the connectivity gap · SHP 2026 ORBIT</div>
+  </div>
+  <div class="header-right">
+    <div class="pill live"><div class="dot"></div> Live Map</div>
+    <div class="pill">v1.0 · Solo Project</div>
+  </div>
+</header>
+
+<main>
+  <aside>
+
+    <div>
+      <div class="section-title">How to use</div>
+      <div class="instruction-card">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>Click a <strong>region</strong> in the list below to fly to it on the map.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>Press <strong>"Place Satellite"</strong> then click anywhere on the map.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>See the <strong>coverage radius</strong> and estimated people reached.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Global Snapshot</div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value">2.6B</div>
+          <div class="stat-label">People offline globally</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">~750M</div>
+          <div class="stat-label">In satellite-reachable zones</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">67%</div>
+          <div class="stat-label">World internet penetration</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">LEO</div>
+          <div class="stat-label">Best orbit for low latency</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="section-title">Underconnected Regions</div>
+      <div id="region-list"></div>
+    </div>
+
+    <div>
+      <div class="section-title">Satellite Simulation</div>
+      <button class="btn btn-primary" id="btn-place" onclick="startPlacing()">
+        📡 Place Satellite
+      </button>
+      <button class="btn btn-outline" onclick="clearSatellites()">
+        🗑 Clear All
+      </button>
+
+      <div id="coverage-result" style="margin-top:12px;">
+        <div class="section-title" style="margin-bottom:8px;">Coverage Result</div>
+        <div class="coverage-stat">
+          <span>Footprint radius</span>
+          <span class="val" id="res-radius">—</span>
+        </div>
+        <div class="coverage-stat">
+          <span>Est. people reached</span>
+          <span class="val" id="res-people">—</span>
+        </div>
+        <div class="coverage-stat">
+          <span>Approx. area</span>
+          <span class="val" id="res-area">—</span>
+        </div>
+        <div class="coverage-stat">
+          <span>Orbit type</span>
+          <span class="val">LEO (550 km)</span>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+
+  <div id="map"></div>
+</main>
+
+<footer>
+  <span>SatReach · SHP 2026 ORBIT Hackathon</span>
+  <span>Data: ITU / World Bank / Our World in Data · Map: OpenStreetMap</span>
+</footer>
+
+<div id="map-tooltip">Click to drop satellite here</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html> 
