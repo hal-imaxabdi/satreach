@@ -12,7 +12,3 @@ Just open index.html in your browser. No installation needed.
 - Vanilla HTML, CSS, JavaScript
 - Data: ITU / World Bank 2023
 
-## Built by
-Halima Abdirizak Mohamed
-Informatics Cybersecurity 
-SHP 2026 Solo Submission
